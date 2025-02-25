@@ -1,2 +1,2 @@
 # leetcode
-Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub v3](https://github.com/raphaelheinz/LeetHub-3.0)
+미국 알고리즘 사이트 leetcode에서 푼 문제들 
