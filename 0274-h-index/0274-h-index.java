@@ -1,32 +1,19 @@
 class Solution {
     public int hIndex(int[] citations) {
 
-        int [] arr = new int [citations.length];
+        Arrays.sort(citations);
 
-        for(int i= 0 ; i < citations.length ; i++)
+        for(int i = 0 ; i < citations.length ; i++)
         {
-            int t = citations[i];
-            if(citations[i] > arr.length)
+            int h = citations.length - i;
+
+            if(citations[i] >= h)
             {
-                t = arr.length;
-            }
-            for(int k = 0 ; k < t; k++)
-            {
-                arr[k]++;
+                return h;
             }
         }
 
-        int max = 0;
-
-        for(int i = 0 ; i < arr.length; i++)
-        {
-            if(arr[i] >= i+1)
-            {
-                max = Math.max(i+1 ,max);
-            }
-        }
-
-        return max;
+        return 0;
         
     }
 }
