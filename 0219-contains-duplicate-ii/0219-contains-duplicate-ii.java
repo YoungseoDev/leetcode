@@ -1,32 +1,19 @@
 class Solution {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
 
-        int start = 0 ;
-        int last = start + k;
-        if(last >= nums.length)
-        {
-            last = nums.length-1;
-        }
+    Set<Integer> window = new HashSet<>();
 
-        while(start != last)
+    for(int i = 0 ; i <= nums.length - 1; i++)
+    {
+        if(i > k)
         {
-            for(int i = start +1 ; i <= last; i++)
-            {
-                if(nums[start] == nums[i] && Math.abs(i-start) <= k)
-                {
-                    System.out.print(i);
-                    return true;
-                }
-            }
-            start++;
-            last++;
-            if(last >= nums.length)
-            {
-                last = nums.length-1;
-            }
+            window.remove(nums[i-k-1]);
         }
-
-        return false;
-        
+        if(window.add(nums[i]) == false)
+        {
+            return true;
+        }
+    }
+       return false;
     }
 }
